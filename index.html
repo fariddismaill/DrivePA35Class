@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Struktur Kelas Semester 5</title>
+<style>
+:root{--bg:#fff6f6;--card:#ffffff;--ink:#2a1315;--muted:#8a5a5d;--line:#f6cdd0;--red:#d21f2f;--reddark:#8c1023;--redlight:#ffe1e3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#160b0c;--card:#241315;--ink:#fbe9ea;--muted:#c9a0a2;--line:#4a2226;--redlight:#3a1418}}
+:root[data-theme="dark"]{--bg:#160b0c;--card:#241315;--ink:#fbe9ea;--muted:#c9a0a2;--line:#4a2226;--redlight:#3a1418}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",-apple-system,Roboto,Arial,sans-serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+.wrap{max-width:840px;margin:0 auto;padding:20px 18px 60px}
+header{background:linear-gradient(135deg,var(--red),var(--reddark));color:#fff;border-radius:16px;padding:26px 22px;margin-bottom:26px;box-shadow:0 8px 24px rgba(140,16,35,.25)}
+header h1{font-size:1.5rem;margin:0 0 6px}
+header p{margin:0;opacity:.92;font-size:.92rem}
+h2{font-size:1.05rem;margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--red);color:var(--reddark)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:28px}
+.card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.card .role{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--red);font-weight:700}
+.card .who{font-weight:600;margin-top:4px}
+.pjlist{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:6px}
+.pjlist li{display:flex;justify-content:space-between;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:.92rem}
+.pjlist .who{color:var(--reddark);font-weight:700;white-space:nowrap}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px;padding-bottom:2px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:999px;font-size:.85rem;cursor:pointer;font-weight:600}
+.tabs button.active{background:var(--red);border-color:var(--red);color:#fff}
+ul.courses{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:6px}
+.course-row{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;font-size:.92rem}
+.course-row.active{border-color:var(--red);background:var(--redlight)}
+.course-row .cname{flex:1}
+.course-row .pjtag{font-size:.7rem;color:var(--reddark);font-weight:600;white-space:nowrap}
+.course-row .fcount{font-size:.72rem;color:var(--muted);white-space:nowrap}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;overflow-x:auto}
+.panel h3{margin:0 0 10px;color:var(--reddark)}
+.filelist{list-style:none;padding:0;margin:0 0 12px;display:grid;gap:6px}
+.filelist li{font-size:.9rem;display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--redlight);border-radius:8px;padding:6px 10px}
+.filelist a{color:var(--reddark);font-weight:600;text-decoration:none}
+.filelist a:hover{text-decoration:underline}
+.filelist .sz{color:var(--muted);font-size:.75rem;margin-left:6px;font-weight:400}
+.delx{cursor:pointer;color:var(--muted);font-size:.85rem}
+.muted{color:var(--muted);font-size:.85rem}
+form.addf{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+form.addf input[type=text]{flex:1;min-width:120px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+form.addf input[type=file]{flex:1;min-width:160px;font-size:.82rem;color:var(--ink)}
+form.addf button{padding:8px 16px;border:none;border-radius:8px;background:var(--red);color:#fff;font-weight:700;cursor:pointer}
+.msg{font-size:.8rem;margin:6px 0 0;color:var(--reddark)}
+footer{margin-top:30px;text-align:center;color:var(--muted);font-size:.76rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>🎓 Struktur Kelas — Semester 5</h1>
+<p>Psikologi · pengurus kelas, PJ mata kuliah, dan drive daftar matkul semester 1–5</p>
+</header>
+
+<h2>Pengurus Kelas</h2>
+<div class="card-grid">
+<div class="card"><div class="role">Ketua</div><div class="who">Mulki</div></div>
+<div class="card"><div class="role">Wakil Ketua</div><div class="who">Farid</div></div>
+<div class="card"><div class="role">Bendahara</div><div class="who">Ferli, Naurah</div></div>
+<div class="card"><div class="role">Sekretaris</div><div class="who">Gheria, Ayu</div></div>
+</div>
+
+<h2>PJ Mata Kuliah Semester 5</h2>
+<ul class="pjlist">
+<li><span>Inventori</span><span class="who">Kitty</span></li>
+<li><span>Metodologi Penelitian Kualitatif</span><span class="who">Dysti</span></li>
+<li><span>Metode Pengukuran Inteligensi</span><span class="who">Donna</span></li>
+<li><span>Psikologi Anak Khusus</span><span class="who">Aliyya</span></li>
+<li><span>Lab</span><span class="who">Mulki</span></li>
+<li><span>Psikologi Abnormal</span><span class="who">Salwa</span></li>
+<li><span>Psikologi Kognitif Sains</span><span class="who">Arnie</span></li>
+<li><span>Ergonomi</span><span class="who">Qoni</span></li>
+<li><span>Psikodiagnostik 3: Wawancara</span><span class="who">Panji</span></li>
+<li><span>Psikologi Konsumen</span><span class="who">Talitha</span></li>
+</ul>
+
+<h2>📁 Drive Mata Kuliah</h2>
+<div class="tabs" id="tabs"></div>
+<ul class="courses" id="courseList"></ul>
+<div class="panel" id="panel" hidden></div>
+
+<footer>File tersimpan otomatis di browser kamu (localStorage). Untuk penyimpanan bersama antar orang, sambungkan ke server/database sendiri.</footer>
+</div>
+
+<script>
+const SEM={
+1:["Matematika dan Ilmu Alamiah Dasar","Pendidikan Kewarganegaraan","Filsafat Umum","Pengantar Aplikasi Komputer Psikologi & Informatika","Psikologi Umum 1","Psikologi Sosial 1","Bahasa Inggris Psikologi","Pendidikan Agama"],
+2:["Psikologi Perkembangan 1","Psikologi Sosial 2","Psikologi Umum 2","Psikologi Faal","Bahasa Indonesia","Digital Citizenship","Praktikum Digital Citizenship","Pendidikan Pancasila"],
+3:["Psikologi dan Teknologi Internet","Psikodiagnostik 1","Statistika","Psikologi Perkembangan 2","Psikologi Kepribadian 1","Psikologi Pendidikan","Kode Etik Psikologi"],
+4:["Psikologi Kepribadian 2","Psikologi Industri dan Organisasi","Filsafat Manusia","Psikologi Klinis","Psikodiagnostika 2: Observasi","Metodologi Penelitian Kuantitatif","Statistik Lanjut","Pengembangan Kreativitas & Keberbakatan"],
+5:["Inventori","Metodologi Penelitian Kualitatif","Metode Pengukuran Intelegensi","Psikologi Anak Khusus","Psikologi Abnormal","Psikologi Kognitif Sains","Ergonomi","Psikodiagnostik 3: Wawancara","Psikologi Konsumen"]
+};
+const PJ5={"Inventori":"Kitty","Metodologi Penelitian Kualitatif":"Dysti","Metode Pengukuran Intelegensi":"Donna","Psikologi Anak Khusus":"Aliyya","Psikologi Abnormal":"Salwa","Psikologi Kognitif Sains":"Arnie","Ergonomi":"Qoni","Psikodiagnostik 3: Wawancara":"Panji","Psikologi Konsumen":"Talitha"};
+const KEY='kelas5-drive-v2';
+const MAXBYTES=2*1024*1024;
+let store={};
+try{store=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){store={};}
+let activeSem=1, activeCourse=null;
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function save(){try{localStorage.setItem(KEY, JSON.stringify(store));return true;}catch(e){return false;}}
+function fmtSize(b){if(!b)return'';if(b<1024)return b+' B';if(b<1048576)return (b/1024).toFixed(0)+' KB';return (b/1048576).toFixed(1)+' MB';}
+
+function renderTabs(){
+  const t=document.getElementById('tabs'); t.innerHTML='';
+  for(let n=1;n<=5;n++){
+    const b=document.createElement('button');
+    b.textContent='Semester '+n;
+    if(n===activeSem) b.className='active';
+    b.onclick=()=>{activeSem=n;activeCourse=null;document.getElementById('panel').hidden=true;renderTabs();renderCourses();};
+    t.appendChild(b);
+  }
+}
+
+function renderCourses(){
+  const list=document.getElementById('courseList'); list.innerHTML='';
+  const semData=store[activeSem]||{};
+  SEM[activeSem].forEach(course=>{
+    const files=semData[course]||[];
+    const li=document.createElement('li');
+    li.className='course-row'+(course===activeCourse?' active':'');
+    const pj=activeSem===5?PJ5[course]:null;
+    li.innerHTML='<span class="cname">'+esc(course)+'</span>'+(pj?'<span class="pjtag">PJ: '+esc(pj)+'</span>':'')+'<span class="fcount">'+(files.length?files.length+' file':'—')+'</span>';
+    li.onclick=()=>{activeCourse=course;renderCourses();renderPanel();};
+    list.appendChild(li);
+  });
+}
+
+function renderPanel(){
+  const panel=document.getElementById('panel'); panel.hidden=false;
+  const semData=store[activeSem]||{};
+  const files=semData[activeCourse]||[];
+  panel.innerHTML=
+    '<h3>'+esc(activeCourse)+'</h3>'+
+    '<ul class="filelist" id="flist">'+(files.length?files.map((f,i)=>'<li><span>'+(f.data?'<a href="'+f.data+'" download="'+esc(f.name)+'">⬇ '+esc(f.name)+'</a>':(f.url?'<a href="'+esc(f.url)+'" target="_blank" rel="noopener">🔗 '+esc(f.name)+'</a>':esc(f.name)))+(f.size?'<span class="sz">('+fmtSize(f.size)+')</span>':'')+'</span><span class="delx" data-i="'+i+'">✕</span></li>').join(''):'<li class="muted" style="background:none">Belum ada file</li>')+'</ul>'+
+    '<form class="addf" id="addForm">'+
+      '<input type="text" id="fname" placeholder="Nama file/materi" required>'+
+      '<input type="file" id="ffile">'+
+      '<input type="text" id="furl" placeholder="atau tempel link (opsional)">'+
+      '<button type="submit">+ Tambah</button>'+
+    '</form>'+
+    '<p class="msg" id="msg"></p>';
+
+  document.getElementById('addForm').onsubmit=function(e){
+    e.preventDefault();
+    const name=document.getElementById('fname').value.trim();
+    const url=document.getElementById('furl').value.trim();
+    const fileInput=document.getElementById('ffile');
+    const msg=document.getElementById('msg');
+    if(!name) return;
+    const finish=(entry)=>{
+      if(!store[activeSem]) store[activeSem]={};
+      if(!store[activeSem][activeCourse]) store[activeSem][activeCourse]=[];
+      store[activeSem][activeCourse].push(entry);
+      if(!save()){ store[activeSem][activeCourse].pop(); msg.textContent='Gagal simpan: penyimpanan browser penuh.'; return; }
+      renderCourses(); renderPanel();
+    };
+    if(fileInput.files && fileInput.files[0]){
+      const f=fileInput.files[0];
+      if(f.size>MAXBYTES){ msg.textContent='File terlalu besar (maks 2MB). Coba pakai link saja.'; return; }
+      const reader=new FileReader();
+      reader.onload=()=>finish({name:name,data:reader.result,size:f.size});
+      reader.onerror=()=>{ msg.textContent='Gagal membaca file.'; };
+      reader.readAsDataURL(f);
+    } else {
+      finish({name:name,url:url||''});
+    }
+  };
+  panel.querySelectorAll('.delx').forEach(el=>{
+    el.onclick=()=>{
+      const i=parseInt(el.dataset.i,10);
+      store[activeSem][activeCourse].splice(i,1);
+      save(); renderCourses(); renderPanel();
+    };
+  });
+}
+
+renderTabs(); renderCourses();
+</script>
+</body>
+</html>
